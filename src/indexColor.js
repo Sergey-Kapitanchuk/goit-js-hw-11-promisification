@@ -6,35 +6,27 @@ const colors = [
     '#009688',
     '#795548',
 ];
-
-const bodyEl = document.querySelector('body');  
-
-bodyEl.insertAdjacentHTML('beforeend', ` <button type="button" data-action="start">Start</button>
-             <button type="button" data-action="stop">Stop</button>`);
-
-const buttonStart = document.querySelector('[data-action="start"]');
-const buttonStop = document.querySelector('[data-action="stop"]');
-
-const randomIntegerFromInterval = (min, max) => { return Math.floor(Math.random() * (max -
-min + 1) + min); }; 
-const change = () => {
-    return bodyEl.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
+const refs = {
+    bodyEl: document.querySelector('body'),
+    buttonStart: document.querySelector('[data-action="start"]'),
+    buttonStop:document.querySelector('[data-action="stop"]'),
 }
-const intervalId = setInterval(change, 1000);
+let intervalId = null;
 
-const e=() => {
-    intervalId;
-    buttonStart.removeEventListener('click', e)
+const clickStart = () => {
+    intervalId = setInterval(() => {
+        const randomIntegerFromInterval = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+        };
+        refs.bodyEl.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
+    }, 1000)
+    startRef.disabled = true;
 }
 
-buttonStart.addEventListener('click', e);
-buttonStop.addEventListener('click', evt => {
+const clickStop = () => {
     clearInterval(intervalId);
-    e;
-});
+    startRef.disabled = true;
+}
 
-
-    
-
-
-
+refs.buttonStart.addEventListener('click', clickStart);
+refs.buttonStop.addEventListener('click', clickStop);

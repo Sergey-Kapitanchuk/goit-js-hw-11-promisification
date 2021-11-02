@@ -1,6 +1,12 @@
 import './sass/main.scss';
 
 const delay = ms => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      
+      resolve(ms);
+    }, ms)
+  });
   // Твой код
 };
 
