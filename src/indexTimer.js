@@ -4,10 +4,10 @@ class CountdownTimer {
     this.targetDate = targetDate;
     this.start();
     const timer = document.querySelector(this.selector);
-    this.days = timer.querySelector('[data-value ="days"]');
-    this.hours = timer.querySelector('[data-value ="hours"]');
-    this.mins = timer.querySelector('[data-value ="mins"]');
-    this.secs = timer.querySelector('[data-value ="secs"]');
+    // this.days = timer.querySelector('[data-value ="days"]');
+    // this.hours = timer.querySelector('[data-value ="hours"]');
+    // this.mins = timer.querySelector('[data-value ="mins"]');
+    // this.secs = timer.querySelector('[data-value ="secs"]');
       
     this.days2 = timer.querySelector('.timer__days');
     this.hours2 = timer.querySelector('.timer__hours');
@@ -36,12 +36,12 @@ class CountdownTimer {
     return { days, hours, mins, secs };
   }
 
-  updateTimerFace({ days, hours, mins, secs }) {
-    this.days.textContent = `${days}`;
-    this.hours.textContent = `${hours}`;
-    this.mins.textContent = `${mins}`;
-    this.secs.textContent = `${secs}`;
-    }
+  // updateTimerFace({ days, hours, mins, secs }) {
+  //   this.days.textContent = `${days}`;
+  //   this.hours.textContent = `${hours}`;
+  //   this.mins.textContent = `${mins}`;
+  //   this.secs.textContent = `${secs}`;
+  //   }
     updateTimerFace({ days, hours, mins, secs }) {
     this.days2.textContent = `${days}`;
     this.hours2.textContent = `${hours}`;
@@ -51,10 +51,10 @@ class CountdownTimer {
 }
 
     
-    const timer = new CountdownTimer({
-    selector: '#timer',
-    targetDate: new Date('Jan 01, 2022'),
-    });
+    // const timer = new CountdownTimer({
+    // selector: '#timer',
+    // targetDate: new Date('Jan 01, 2022'),
+    // });
 
     const timer2 = new CountdownTimer({
     selector: '#timer-2',
