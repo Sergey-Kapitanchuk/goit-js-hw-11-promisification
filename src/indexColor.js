@@ -20,12 +20,12 @@ const clickStart = () => {
         };
         refs.bodyEl.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
     }, 1000)
-    startRef.disabled = true;
+    refs.buttonStart.removeEventListener('click', clickStart);
 }
 
 const clickStop = () => {
     clearInterval(intervalId);
-    startRef.disabled = true;
+    refs.buttonStart.addEventListener('click', clickStart);
 }
 
 refs.buttonStart.addEventListener('click', clickStart);
