@@ -5,30 +5,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    
+        @media (prefers-reduced-motion: no-preference) {
+            :root {
+                scroll-behavior: smooth;
+            }
+        }
+    
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            
+        }
+        .timer-2 {
+            display: flex;
+            justify-content: center;
+        }
+        .timer__items {
+            display: flex;
+            font-size: 48px;
+        }
+    
+        .timer__item {
+            position: relative;
+            min-width: 60px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+    
+        .timer__item::before {
+            content: attr(data-title);
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+    
+        .timer__item:not(:last-child)::after {
+            content: ':';
+            position: absolute;
+            right: -15px;
+        }
+    </style>
 </head>
 <body>
     <p><a href="index.html">На главную</a></p>
-<div class="timer" id="timer-1">
+<div class="timer" id="timer">
     <div class="field">
-        <span class="value" data-value="days">11</span>
+        <span class="value" data-value="days">00</span>
         <span class="label">Days</span>
     </div>
 
     <div class="field">
-        <span class="value" data-value="hours">11</span>
+        <span class="value" data-value="hours">00</span>
         <span class="label">Hours</span>
     </div>
 
     <div class="field">
-        <span class="value" data-value="mins">11</span>
+        <span class="value" data-value="mins">00</span>
         <span class="label">Minutes</span>
     </div>
 
     <div class="field">
-        <span class="value" data-value="secs">11</span>
+        <span class="value" data-value="sec">00</span>
         <span class="label">Seconds</span>
     </div>
 </div>
+
+<div class="timer-2">
+    <div class="timer__items" id="timer-2">
+        <div class="timer__item timer__days">00</div>
+        <div class="timer__item timer__hours">00</div>
+        <div class="timer__item timer__minutes">00</div>
+        <div class="timer__item timer__seconds">00</div>
+    </div>
+</div>
+
     <script src="./indexTimer.js"></script>
 </body>
 </html>
+
+
+<!--  this.days2 = timer.querySelector('.timer__days');
+    this.hours2 = timer.querySelector('.timer__hours');
+    this.mins2 = timer.querySelector('.timer__minutes');
+    this.secs2 = timer.querySelector('.timer__seconds'); -->
